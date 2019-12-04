@@ -2,5 +2,16 @@
   "name": "harmontown-video-ripper",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "entries": "node fetch-entries"
+  },
+  "devDependencies": {
+    "@smarterlabs/eslint-config": "^1.0.7"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "isomorphic-fetch": "^2.2.1",
+    "puppeteer": "^2.0.0"
+  }
 }
