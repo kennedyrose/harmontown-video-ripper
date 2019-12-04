@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "entries": "node fetch-entries"
+    "entries": "node fetch-entries",
+    "start": "node index"
   },
   "devDependencies": {
     "@smarterlabs/eslint-config": "^1.0.7"

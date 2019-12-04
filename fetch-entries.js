@@ -1,6 +1,6 @@
-require(`dotenv`).config()
 const puppeteer = require(`puppeteer`)
 const { outputJson } = require(`fs-extra`)
+const login = require(`./login`)
 
 const urls = []
 urls.length = 101
@@ -13,12 +13,7 @@ async function go(){
 	const page = await browser.newPage()
 
 	// Login
-	await page.goto(`https://www.harmontown.com/wp-login.php`)
-	await page.focus(`#user_login`)
-	await page.keyboard.type(process.env.USERNAME)
-	await page.focus(`#user_pass`)
-	await page.keyboard.type(process.env.PASSWORD)
-	await page.keyboard.press('Enter')
+	await login(page)
 
 	// Get entry links
 	const links = []
