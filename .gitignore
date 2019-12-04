@@ -25,3 +25,5 @@ _optimize
 # Temporary
 temp
 temp-*
+.progress
+video

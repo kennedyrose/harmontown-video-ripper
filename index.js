@@ -1,12 +1,13 @@
 const dl = require(`download-file-with-progressbar`)
+const { existsSync, mkdirSync, outputFile, readFile } = require(`fs-extra`)
 const links = require(`./video-links.json`)
 
-function asyncDl(url){
+function asyncDl(url, key){
 	let prog = 0
 	return new Promise((resolve, reject) => {
 		dl(url, {
 			// filename: 'the filename to store, default = path.basename(YOUR_URL) || "unknowfilename"',
-			// dir: 'the folder to store, default = os.tmpdir()',
+			dir: './videos',
 			onDone: (info) => {
 				console.log('done', info)
 				resolve(info)
@@ -28,9 +29,17 @@ function asyncDl(url){
 }
 
 !async function go(){
-	for(let i = links.length; i--;){
+	if (!existsSync(`./video`)) {
+		mkdirSync(`./video`)
+	}
+	let start
+	try {
+		start = await readFile(`./.progress`)
+	}
+	catch(err){}
+	for(let i = start || 0; i < links.length; i++){
 		const link = links[i]
 		console.log(`Downloading: ${link}`)
-		await asyncDl(link)
+		await asyncDl(link, i)
 	}
 }()
