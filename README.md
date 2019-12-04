@@ -1,3 +1,3 @@
 # Harmontown Video Ripper
 
-Pulls down videos of Harmontown shows for archiving.
+Pulls down all 233 videos of Harmontown shows for archiving.

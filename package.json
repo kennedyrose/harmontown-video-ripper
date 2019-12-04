@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
+    "download-file-with-progressbar": "^1.2.3",
     "fs-extra": "^8.1.0",
     "isomorphic-fetch": "^2.2.1",
     "puppeteer": "^2.0.0"
